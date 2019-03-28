@@ -6,6 +6,9 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
+apply plugin: 'com.github.dcendents.android-maven'
+group = 'com.github.com/pertadima'
+
 android {
     compileSdkVersion 28
     defaultConfig {
