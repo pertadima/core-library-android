@@ -1,7 +1,14 @@
 package id.co.core.commons
 
+import android.app.Activity
+import android.os.Build
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import android.widget.ImageView
+import androidx.annotation.DrawableRes
+import androidx.appcompat.app.AlertDialog
+import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
@@ -27,4 +34,45 @@ fun ImageView.loadImage(url: String?) {
                 .error(R.color.lineColor)
         )
         .into(this)
+}
+
+
+fun Window.blockTouchScreen() {
+    this.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+}
+
+fun Window.unblockTouchScreen() {
+    this.clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+}
+
+
+fun ImageView.setDrawableVectorCompat(@DrawableRes drawableId: Int) {
+    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+        this.setImageDrawable(
+            VectorDrawableCompat.create(this.context.resources, drawableId, this.context.theme)
+        )
+    } else {
+        this.setImageResource(drawableId)
+    }
+}
+
+
+fun Activity.showDialog(message: String, cancelable: Boolean = false,
+                        positiveButton: String, positiveAction: () -> Unit = {},
+                        negativeButton: String, negativeAction: () -> Unit = {}) {
+
+    val dialogBuilder = AlertDialog.Builder(this).apply {
+        setMessage(message)
+        setCancelable(cancelable)
+        setPositiveButton(positiveButton) { dialog, _ ->
+            positiveAction()
+            dialog.dismiss()
+        }
+        setNegativeButton(negativeButton) { dialog, _ ->
+            negativeAction()
+            dialog.dismiss()
+        }
+    }
+    dialogBuilder.create().show()
 }

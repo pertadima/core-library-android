@@ -17,6 +17,7 @@ class GeneralRecyclerView<T : Any>(
     private val diffCallback: DiffCallback,
     @LayoutRes val holderResId: Int,
     @IdRes val specificResViewId: Int? = null,
+    private val fadeAnimation: Boolean = true,
     private val onBind: (T, View) -> Unit,
     private val itemListener: (T, pos: Int, View) -> Unit = { _, _, _ -> kotlin.run {} },
     private val specificViewListener: (T, pos: Int, View) -> Unit = { _, _, _ -> kotlin.run {} }
@@ -33,7 +34,10 @@ class GeneralRecyclerView<T : Any>(
     }
 
     override fun onBindViewHolder(p0: ViewHolder<T>, p1: Int) {
-        setFadeAnimation(p0.itemView)
+        if (fadeAnimation) {
+            setFadeAnimation(p0.itemView)
+        }
+
         p0.bindView(listData[p0.adapterPosition], onBind, itemListener, specificViewListener)
     }
 

@@ -1,5 +1,6 @@
 package id.co.core.sharedpreferences
 
+import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
 import dagger.Module
@@ -12,12 +13,16 @@ import javax.inject.Singleton
 
 @Module
 open class SharedPreferencesModule(
-    private val context: Context,
     private val sharedPreferencesName: String
 ) {
     @Provides
     @Singleton
-    fun providesSharedPreferences(): SharedPreferences = context.getSharedPreferences(sharedPreferencesName, 0)
+    fun providesContext(): Application = Application()
+
+    @Provides
+    @Singleton
+    fun providesSharedPreferences(application: Application): SharedPreferences =
+        application.getSharedPreferences(sharedPreferencesName, 0)
 
     @Provides
     @Singleton
