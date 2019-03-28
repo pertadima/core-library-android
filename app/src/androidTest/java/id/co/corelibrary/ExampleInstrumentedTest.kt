@@ -1,4 +1,4 @@
-package id.co.core_library
+package id.co.corelibrary
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package id.co.core_library
+package id.co.corelibrary
 
 import org.junit.Test
 
