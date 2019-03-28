@@ -1,4 +1,4 @@
-package id.co.corelibrary.network
+package id.co.core.network
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson

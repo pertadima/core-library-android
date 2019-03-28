@@ -1,11 +1,11 @@
-package id.co.corelibrary.commons
+package id.co.core.commons
 
 import android.view.View
 import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
-import id.co.corelibrary.R
+import id.co.core.R
 
 /**
  * Created by pertadima on 28,March,2019

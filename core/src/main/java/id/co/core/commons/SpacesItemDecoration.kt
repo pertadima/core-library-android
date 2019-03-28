@@ -1,4 +1,4 @@
-package id.co.corelibrary.commons
+package id.co.core.commons
 
 import android.graphics.Rect
 import android.view.View

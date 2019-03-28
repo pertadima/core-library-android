@@ -1,4 +1,4 @@
-package id.co.corelibrary.network
+package id.co.core.network
 
 import retrofit2.HttpException
 import java.io.IOException

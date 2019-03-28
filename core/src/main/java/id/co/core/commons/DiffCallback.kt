@@ -1,4 +1,4 @@
-package id.co.corelibrary.commons
+package id.co.core.commons
 
 import androidx.recyclerview.widget.DiffUtil
 

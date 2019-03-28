@@ -1,4 +1,4 @@
-package id.co.corelibrary.network
+package id.co.core.network
 
 import android.annotation.SuppressLint
 import android.content.BroadcastReceiver

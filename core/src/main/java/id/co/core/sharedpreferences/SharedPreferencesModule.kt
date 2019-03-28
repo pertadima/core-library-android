@@ -1,4 +1,4 @@
-package id.co.corelibrary.sharedpreferences
+package id.co.core.sharedpreferences
 
 import android.content.Context
 import android.content.SharedPreferences
