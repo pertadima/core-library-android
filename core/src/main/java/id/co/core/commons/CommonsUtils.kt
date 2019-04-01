@@ -1,11 +1,13 @@
 package id.co.core.commons
 
 import android.app.Activity
+import android.content.Context
 import android.os.Build
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
 import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.DrawableRes
 import androidx.appcompat.app.AlertDialog
 import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
@@ -57,6 +59,23 @@ fun ImageView.setDrawableVectorCompat(@DrawableRes drawableId: Int) {
     }
 }
 
+fun Context.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+    Toast.makeText(this, message, duration).show()
+}
+
+fun Activity.showDialog(message: String, cancelable: Boolean = false,
+                        positiveButton: String, action: () -> Unit = {}) {
+
+    val dialogBuilder = AlertDialog.Builder(this).apply {
+        setMessage(message)
+        setCancelable(cancelable)
+        setPositiveButton(positiveButton) { dialog, _ ->
+            action()
+            dialog.dismiss()
+        }
+    }
+    dialogBuilder.create().show()
+}
 
 fun Activity.showDialog(message: String, cancelable: Boolean = false,
                         positiveButton: String, positiveAction: () -> Unit = {},
