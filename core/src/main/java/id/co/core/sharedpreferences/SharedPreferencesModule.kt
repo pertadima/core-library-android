@@ -19,11 +19,11 @@ open class SharedPreferencesModule(
     @Provides
     @Singleton
     fun providesSharedPreferences(): SharedPreferences =
-        context.getSharedPreferences(sharedPreferencesName, 0)
+        context.getSharedPreferences(sharedPreferencesName, Context.MODE_PRIVATE)
 
     @Provides
     @Singleton
-    fun probvidesSharedPreferencesHelper(sharedPreferences: SharedPreferences) =
+    fun providesSharedPreferencesHelper(sharedPreferences: SharedPreferences): SharedPreferenceHelper =
         SharedPreferenceHelper(sharedPreferences)
 
 }
