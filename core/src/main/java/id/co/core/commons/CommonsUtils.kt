@@ -40,8 +40,10 @@ fun ImageView.loadImage(url: String?) {
 
 
 fun Window.blockTouchScreen() {
-    this.setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
-        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE)
+    this.setFlags(
+        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE,
+        WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE
+    )
 }
 
 fun Window.unblockTouchScreen() {
@@ -63,8 +65,10 @@ fun Context.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
     Toast.makeText(this, message, duration).show()
 }
 
-fun Activity.showDialog(message: String, cancelable: Boolean = false,
-                        positiveButton: String, action: () -> Unit = {}) {
+fun Activity.showDialog(
+    message: String, cancelable: Boolean = false,
+    positiveButton: String, action: () -> Unit = {}
+) {
 
     val dialogBuilder = AlertDialog.Builder(this).apply {
         setMessage(message)
@@ -77,9 +81,11 @@ fun Activity.showDialog(message: String, cancelable: Boolean = false,
     dialogBuilder.create().show()
 }
 
-fun Activity.showDialog(message: String, cancelable: Boolean = false,
-                        positiveButton: String, positiveAction: () -> Unit = {},
-                        negativeButton: String, negativeAction: () -> Unit = {}) {
+fun Activity.showDialog(
+    message: String, cancelable: Boolean = false,
+    positiveButton: String, positiveAction: () -> Unit = {},
+    negativeButton: String, negativeAction: () -> Unit = {}
+) {
 
     val dialogBuilder = AlertDialog.Builder(this).apply {
         setMessage(message)
